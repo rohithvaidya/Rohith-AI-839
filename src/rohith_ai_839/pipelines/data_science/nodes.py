@@ -5,6 +5,17 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from evidently import ColumnMapping
+
+from evidently.report import Report
+from evidently.metrics.base_metric import generate_column_metrics
+from evidently.metric_preset import DataDriftPreset, TargetDriftPreset
+from evidently.metrics import *
+
+from evidently.test_suite import TestSuite
+from evidently.tests.base_test import generate_column_tests
+from evidently.test_preset import DataStabilityTestPreset, NoTargetPerformanceTestPreset
+from evidently.tests import *
 
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
@@ -37,6 +48,13 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression
     regressor = LogisticRegression(penalty="l2", C=0.01)
     regressor.fit(X_train, y_train)
     return regressor
+
+def quality_drift_check(X_train: pd.DataFrame, X_test: pd.DataFrame):
+    report = Report(metrics=[
+    DataDriftPreset(), 
+])
+    report.run(reference_data=X_train, current_data=X_test)
+    report.save_html("E:/Lab Files/Repos/rohith-ai-839/data/08_reporting/file.html")
 
 
 def evaluate_model(

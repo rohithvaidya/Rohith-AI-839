@@ -1,6 +1,6 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import evaluate_model, split_data, train_model
+from .nodes import evaluate_model, split_data, train_model, quality_drift_check
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -24,5 +24,11 @@ def create_pipeline(**kwargs) -> Pipeline:
                 outputs=None,
                 name="evaluate_model_node",
             ),
+            node(
+                func=quality_drift_check,
+                inputs=["X_train", "X_test"],
+                outputs=None,
+                name="data_quality_check",
+            )
         ]
     )
