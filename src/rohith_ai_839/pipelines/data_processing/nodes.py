@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import LabelEncoder
-
 
 
 def preprocess_dataset(dataset: pd.DataFrame) -> pd.DataFrame:

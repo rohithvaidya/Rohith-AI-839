@@ -1,6 +1,13 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import evaluate_model, split_data, train_model, quality_drift_check, prediction_drift_check, report_plotly
+from .nodes import (
+    evaluate_model,
+    prediction_drift_check,
+    quality_drift_check,
+    report_plotly,
+    split_data,
+    train_model,
+)
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -31,17 +38,16 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name="data_quality_check",
             ),
             node(
-                func= prediction_drift_check,
+                func=prediction_drift_check,
                 inputs=["y_test", "y_pred"],
                 outputs="pred_drift",
-                name="pred_drift_check"
+                name="pred_drift_check",
             ),
             node(
-                func= report_plotly,
+                func=report_plotly,
                 inputs=["data_drift", "pred_drift"],
                 outputs=None,
-                name="report_plotly"
-            )
-           
+                name="report_plotly",
+            ),
         ]
     )
