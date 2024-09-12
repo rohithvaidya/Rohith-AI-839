@@ -1,8 +1,6 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import (
-    preprocess_dataset
-)
+from .nodes import preprocess_dataset
 
 
 def create_pipeline(**kwargs) -> Pipeline:
