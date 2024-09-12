@@ -1,0 +1,9 @@
+# Function reference {.doc .doc-index}
+
+## Some functions
+
+Functions to inspect docstrings.
+
+| | |
+| --- | --- |
+| [LogisticRegression](LogisticRegression.qmd#sklearn.linear_model.LogisticRegression) | Logistic Regression (aka logit, MaxEnt) classifier. |

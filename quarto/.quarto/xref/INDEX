@@ -1,0 +1,23 @@
+{
+  "about.qmd": {
+    "about.html": "626ffa9f"
+  },
+  "index.qmd": {
+    "index.html": "f69df39c"
+  },
+  "reference/get_object.qmd": {
+    "get_object.html": "4f171a11"
+  },
+  "reference/index.qmd": {
+    "index.html": "3d754527"
+  },
+  "reference/preview.qmd": {
+    "preview.html": "9df1138a"
+  },
+  "reference/sklearn.qmd": {
+    "sklearn.html": "f9ee6b22"
+  },
+  "reference/LogisticRegression.qmd": {
+    "LogisticRegression.html": "fea6ff80"
+  }
+}
