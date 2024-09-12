@@ -2,9 +2,10 @@ import logging
 from typing import Dict, Tuple
 
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
@@ -17,14 +18,14 @@ def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
         Split data.
     """
     X = data[parameters["features"]]
-    y = data["price"]
+    y = data["y"]
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=parameters["test_size"], random_state=parameters["random_state"]
     )
     return X_train, X_test, y_train, y_test
 
 
-def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
+def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression:
     """Trains the linear regression model.
 
     Args:
@@ -34,13 +35,13 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
     Returns:
         Trained model.
     """
-    regressor = LinearRegression()
+    regressor = LogisticRegression(penalty="l2", C=0.01)
     regressor.fit(X_train, y_train)
     return regressor
 
 
 def evaluate_model(
-    regressor: LinearRegression, X_test: pd.DataFrame, y_test: pd.Series
+    regressor: LogisticRegression, X_test: pd.DataFrame, y_test: pd.Series
 ):
     """Calculates and logs the coefficient of determination.
 
@@ -50,6 +51,6 @@ def evaluate_model(
         y_test: Testing data for price.
     """
     y_pred = regressor.predict(X_test)
-    score = r2_score(y_test, y_pred)
+    score = accuracy_score(y_test, y_pred)
     logger = logging.getLogger(__name__)
-    logger.info("Model has a coefficient R^2 of %.3f on test data.", score)
+    logger.info("Model has accuracy of %.3f on test data.", score)
