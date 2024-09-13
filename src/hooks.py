@@ -1,5 +1,4 @@
 import mlflow
-
 from kedro.mlflow.hooks import MLflowLoggerHook
 
 
