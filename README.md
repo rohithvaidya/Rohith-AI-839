@@ -7,15 +7,15 @@ This project implements an end-to-end machine learning pipeline to predict credi
 Methodology:
 The project is built using Kedro, a structured framework that helps organize the data pipeline in a modular fashion. The process begins with data ingestion, followed by preprocessing, feature engineering, model training, and evaluation.
 
-    Data Ingestion: The dataset, which includes features like checking_status, duration, credit_amount, and numerical indicators (X_1 to X_10), is loaded into the pipeline using Kedro's DataCatalog. The target variable (y) represents the credit risk classification.
+Data Ingestion: The dataset, which includes features like checking_status, duration, credit_amount, and numerical indicators (X_1 to X_10), is loaded into the pipeline using Kedro's DataCatalog. The target variable (y) represents the credit risk classification.
 
-    Data Preprocessing: Preprocessing includes handling missing values, encoding categorical variables (e.g., checking_status, credit_history), and scaling numerical features. Standardization is applied to ensure logistic regression performs optimally across all features.
+Data Preprocessing: Preprocessing includes handling missing values, encoding categorical variables (e.g., checking_status, credit_history), and scaling numerical features. Standardization is applied to ensure logistic regression performs optimally across all features.
 
-    Feature Engineering: Feature transformations, such as one-hot encoding for categorical variables and normalization for numerical variables, are applied. New features were created based on domain knowledge, such as interactions between financial and demographic factors.
+Feature Engineering: Feature transformations, such as one-hot encoding for categorical variables and normalization for numerical variables, are applied. New features were created based on domain knowledge, such as interactions between financial and demographic factors.
 
-    Model Training: The logistic regression model is implemented using sklearn with an L2 penalty for regularization. Cross-validation is employed to tune hyperparameters, ensuring robust model performance.
+Model Training: The logistic regression model is implemented using sklearn with an L2 penalty for regularization. Cross-validation is employed to tune hyperparameters, ensuring robust model performance.
 
-    Model Evaluation: Model performance is evaluated on key metrics like accuracy, precision, recall, and AUC-ROC to assess the classification of credit risk. These metrics are tracked and logged using MLflow for experiment management.
+Model Evaluation: Model performance is evaluated on key metrics like accuracy, precision, recall, and AUC-ROC to assess the classification of credit risk. These metrics are tracked and logged using MLflow for experiment management.
 
 Results:
 The logistic regression model achieved a balanced accuracy with meaningful separation between low and high-risk applicants. Model performance was enhanced through feature scaling and the careful selection of categorical features. The implementation of MLOps practices ensured that the project is fully reproducible, scalable, and production-ready.
