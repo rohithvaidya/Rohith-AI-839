@@ -31,11 +31,28 @@ quartodoc build
 quarto preview
 ```
 
-
 ## Visualise ML Ops Pipeline
 
 ```
 kedro viz run
+``` 
+
+## API endpoint for the model
+
+The model can be served using mlflow and is accessible using, 
+
+```
+import requests
+
+url = "http://127.0.0.1:8001/invocations"
+
+data = {"instances": [list(X_test.values[5])]}
+
+response = requests.post(
+    url, headers={"Content-Type": "application/json"}, data=json.dumps(data)
+)
+
+print(response.json())
 ``` 
 
 ## Distribution Shifts
