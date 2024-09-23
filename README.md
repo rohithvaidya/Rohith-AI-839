@@ -23,6 +23,20 @@ The logistic regression model achieved a balanced accuracy with meaningful separ
 Conclusion:
 This Kedro-based MLOps project successfully demonstrates the application of logistic regression for credit risk classification. Kedro’s pipeline-driven approach ensured clear separation of concerns, from data preprocessing to model training, while enabling robust experiment tracking with MLflow. This workflow can be easily extended to incorporate new data, algorithms, or deployment to production environments, making it a reliable foundation for continuous improvement in credit risk modeling.
 
+## Build Pipeline Docs Quarto
+
+```
+cd quarto
+quartodoc build
+quarto preview
+```
+
+
+## Visualise ML Ops Pipeline
+
+```
+kedro viz run
+``` 
 
 ## Distribution Shifts
 
@@ -69,7 +83,7 @@ Have a look at the files `src/tests/test_run.py` and `src/tests/pipelines/data_s
 
 ```
 pytest
-``'
+```
 
 
 To configure the coverage threshold, look at the `.coveragerc` file.
@@ -92,10 +106,3 @@ To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
 ```
 pip install jupyter
 ```
-
-After installing Jupyter, you can start a local notebook server:
-
-```
-kedro jupyter notebook
-```
-
