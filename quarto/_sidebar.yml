@@ -4,6 +4,18 @@ website:
     - reference/index.qmd
     - contents:
       - reference/LogisticRegression.qmd
-      section: Some functions
+      section: ML Stagewise Documentation
+    - contents:
+      - reference/DataDriftPreset.qmd
+      section: ML Stagewise Documentation
+    - contents:
+      - reference/split_data.qmd
+      - reference/train_model.qmd
+      - reference/quality_drift_check.qmd
+      - reference/evaluate_model.qmd
+      - reference/prediction_drift_check.qmd
+      - reference/plot_and_save.qmd
+      - reference/report_plotly.qmd
+      section: ML Stagewise Documentation
     id: reference
   - id: dummy-sidebar

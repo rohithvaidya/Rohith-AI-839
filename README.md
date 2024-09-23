@@ -1,19 +1,49 @@
-# rohith_ai_839
+# Decision based on Credit history ML Ops Pipeline
 
 ## Overview
 
-This is your new Kedro project, which was generated using `kedro 0.19.7`.
+This project implements an end-to-end machine learning pipeline to predict credit risk, leveraging the Kedro framework for reproducibility, modularity, and scalability. The dataset contains various features about credit applicants, including demographic information, financial details, and existing credit history. The goal is to classify applicants as low or high credit risk, using a logistic regression model as the core algorithm.
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+Methodology:
+The project is built using Kedro, a structured framework that helps organize the data pipeline in a modular fashion. The process begins with data ingestion, followed by preprocessing, feature engineering, model training, and evaluation.
 
-## Rules and guidelines
+    Data Ingestion: The dataset, which includes features like checking_status, duration, credit_amount, and numerical indicators (X_1 to X_10), is loaded into the pipeline using Kedro's DataCatalog. The target variable (y) represents the credit risk classification.
 
-In order to get the best out of the template:
+    Data Preprocessing: Preprocessing includes handling missing values, encoding categorical variables (e.g., checking_status, credit_history), and scaling numerical features. Standardization is applied to ensure logistic regression performs optimally across all features.
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a [data engineering convention](https://docs.kedro.org/en/stable/faq/faq.html#what-is-data-engineering-convention)
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+    Feature Engineering: Feature transformations, such as one-hot encoding for categorical variables and normalization for numerical variables, are applied. New features were created based on domain knowledge, such as interactions between financial and demographic factors.
+
+    Model Training: The logistic regression model is implemented using sklearn with an L2 penalty for regularization. Cross-validation is employed to tune hyperparameters, ensuring robust model performance.
+
+    Model Evaluation: Model performance is evaluated on key metrics like accuracy, precision, recall, and AUC-ROC to assess the classification of credit risk. These metrics are tracked and logged using MLflow for experiment management.
+
+Results:
+The logistic regression model achieved a balanced accuracy with meaningful separation between low and high-risk applicants. Model performance was enhanced through feature scaling and the careful selection of categorical features. The implementation of MLOps practices ensured that the project is fully reproducible, scalable, and production-ready.
+
+Conclusion:
+This Kedro-based MLOps project successfully demonstrates the application of logistic regression for credit risk classification. Kedro’s pipeline-driven approach ensured clear separation of concerns, from data preprocessing to model training, while enabling robust experiment tracking with MLflow. This workflow can be easily extended to incorporate new data, algorithms, or deployment to production environments, making it a reliable foundation for continuous improvement in credit risk modeling.
+
+
+## Distribution Shifts
+
+This project is centered around data and prediction drift detection in machine learning pipelines, with the primary goal of tracking how data distributions and model predictions evolve over time. By identifying these changes (or "drifts"), the system ensures that models remain robust and continue to perform accurately when confronted with new data.
+Key Components
+
+    Drift Detection:
+        The project includes two types of drift detection:
+            Data Drift: Compares the features in the training data (X_train) and the incoming test data (X_test) to detect changes in feature distributions.
+            Prediction Drift: Compares the true labels (y_test) and predicted labels (y_pred) to check for deviations in the distribution of predictions.
+        The drift detection is handled using the Evidently library’s DataDriftPreset, which automatically computes metrics for detecting drift.
+        The results of these drift analyses are saved both as JSON and HTML reports for further examination.
+
+    Distribution Plotting:
+        The project generates visual plots of feature distributions for both the current and reference data, allowing a visual understanding of the drift.
+        The function plot_and_save uses Plotly to create and save these plots as PNG files.
+        These plots show the probability density distributions for each feature in both the current (new) data and the reference (original) data.
+
+    Integration and Reporting:
+        The report_plotly function integrates the drift reports (from both data and predictions), extracts the drift information for each feature or column, and generates the distribution plots for each feature.
+        The final output is a set of saved PNG images for each feature, visually comparing how the distributions of the feature in the reference data and current data differ.
 
 ## How to install dependencies
 
@@ -39,7 +69,8 @@ Have a look at the files `src/tests/test_run.py` and `src/tests/pipelines/data_s
 
 ```
 pytest
-```
+``'
+
 
 To configure the coverage threshold, look at the `.coveragerc` file.
 
@@ -68,31 +99,3 @@ After installing Jupyter, you can start a local notebook server:
 kedro jupyter notebook
 ```
 
-### JupyterLab
-To use JupyterLab, you need to install it:
-
-```
-pip install jupyterlab
-```
-
-You can also start JupyterLab:
-
-```
-kedro jupyter lab
-```
-
-### IPython
-And if you want to run an IPython session:
-
-```
-kedro ipython
-```
-
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can use tools like [`nbstripout`](https://github.com/kynan/nbstripout). For example, you can add a hook in `.git/config` with `nbstripout --install`. This will run `nbstripout` before anything is committed to `git`.
-
-> *Note:* Your output cells will be retained locally.
-
-## Package your Kedro project
-
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
