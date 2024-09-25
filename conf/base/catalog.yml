@@ -180,11 +180,12 @@ dataset:
 
 model_input_dataset:
   type: pandas.CSVDataset
-  filepath: "data/05_model_input/preprocessed_dataset_id_106.csv"
+  filepath: "data/05_model_input/"
   load_args:
     sep: ","
   save_args:
     index: False
+  versioned: True
 
 data_drift_plotly:
   type: plotly.JSONDataset

@@ -131,8 +131,12 @@ def prediction_drift_check(y_test: pd.Series, y_pred: pd.Series):
         reference_data=y_test.to_frame(name="y"),
         current_data=pd.DataFrame(y_pred, columns=["y"]),
     )
-    report.save_html("data/08_reporting/evidently_plot.html")
-    return json.loads(report.json())
+
+    if(json.loads(report.json())["metrics"][1]["result"]["drift_by_columns"]["y"]["drift_detected"]):
+        raise Exception("Prediction Variable Drift Detected. Pipeline Failure")
+    else:
+        report.save_html("data/08_reporting/evidently_plot.html")
+        return json.loads(report.json())
 
 
 def plot_and_save(column_name, current_data, reference_data):
