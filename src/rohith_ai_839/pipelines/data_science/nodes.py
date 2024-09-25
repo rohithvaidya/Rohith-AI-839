@@ -53,8 +53,8 @@ def quality_drift_check(
     """
     Checks for data drift between training and test datasets using predefined metrics.
 
-    This function runs a data drift analysis between the provided training (`X_train`) 
-    and test (`X_test`) datasets. It generates a drift report using the `Report` class 
+    This function runs a data drift analysis between the provided training (`X_train`)
+    and test (`X_test`) datasets. It generates a drift report using the `Report` class
     with the `DataDriftPreset` metrics and returns the report in JSON format.
 
     Parameters
@@ -102,8 +102,8 @@ def prediction_drift_check(y_test: pd.Series, y_pred: pd.Series):
     Checks for prediction drift between the true and predicted values.
 
     This function runs a data drift analysis between the provided true values (`y_test`)
-    and predicted values (`y_pred`). It generates a drift report using the `Report` class 
-    with the `DataDriftPreset` metrics, saves the report as an HTML file, and returns the 
+    and predicted values (`y_pred`). It generates a drift report using the `Report` class
+    with the `DataDriftPreset` metrics, saves the report as an HTML file, and returns the
     drift report in JSON format.
 
     Parameters
@@ -132,7 +132,9 @@ def prediction_drift_check(y_test: pd.Series, y_pred: pd.Series):
         current_data=pd.DataFrame(y_pred, columns=["y"]),
     )
 
-    if(json.loads(report.json())["metrics"][1]["result"]["drift_by_columns"]["y"]["drift_detected"]):
+    if json.loads(report.json())["metrics"][1]["result"]["drift_by_columns"]["y"][
+        "drift_detected"
+    ]:
         raise Exception("Prediction Variable Drift Detected. Pipeline Failure")
     else:
         report.save_html("data/08_reporting/evidently_plot.html")
@@ -143,8 +145,8 @@ def plot_and_save(column_name, current_data, reference_data):
     """
     Plots and saves the probability density distribution for a specified column.
 
-    This function compares the probability density distribution between the current and 
-    reference datasets for a specified column. It creates a line plot for both datasets and saves 
+    This function compares the probability density distribution between the current and
+    reference datasets for a specified column. It creates a line plot for both datasets and saves
     the plot as a PNG file to a predefined location.
 
     Parameters
@@ -163,7 +165,7 @@ def plot_and_save(column_name, current_data, reference_data):
 
     Side Effects
     ------------
-    A PNG file named after the column is saved to 'data/08_reporting/' containing the 
+    A PNG file named after the column is saved to 'data/08_reporting/' containing the
     distribution plot for the specified column.
     """
     current_x = current_data["x"]
@@ -214,29 +216,29 @@ def report_plotly(data_drift, pred_drift):
     """
     Generates and saves distribution plots for data and prediction drift using Plotly.
 
-    This function processes the drift reports from the data drift and prediction drift analyses, 
-    extracts the small distribution data for each column, and generates distribution plots using 
-    the `plot_and_save` function. It handles both data drift and prediction drift reports, saving 
+    This function processes the drift reports from the data drift and prediction drift analyses,
+    extracts the small distribution data for each column, and generates distribution plots using
+    the `plot_and_save` function. It handles both data drift and prediction drift reports, saving
     the resulting plots as PNG files.
 
     Parameters
     ----------
     data_drift : dict
-        A dictionary containing the data drift report, including metrics and drift results 
+        A dictionary containing the data drift report, including metrics and drift results
         by columns.
     pred_drift : dict
-        A dictionary containing the prediction drift report, including metrics and drift results 
+        A dictionary containing the prediction drift report, including metrics and drift results
         by columns.
 
     Returns
     -------
     None
-        This function does not return any value, but saves the generated distribution plots 
+        This function does not return any value, but saves the generated distribution plots
         as PNG files for each column.
 
     Side Effects
     ------------
-    PNG files are saved to 'data/08_reporting/' for each column's distribution plot based 
+    PNG files are saved to 'data/08_reporting/' for each column's distribution plot based
     on the drift reports.
     """
     print(type(data_drift))
