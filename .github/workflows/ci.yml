@@ -36,7 +36,7 @@ jobs:
     - name: Run Unit Tests
       run: |
         pip install pytest  # Ensure pytest is installed
-        pytest tests/  # Run your tests folder
+        pytest  # Run your tests folder
         # Optionally, if you use pytest-cov for coverage:
         # pytest --cov=src tests/
 
