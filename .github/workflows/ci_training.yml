@@ -1,4 +1,4 @@
-name: CI Re-Training Pipeline
+name: Trigger Re-Training Workflow
 
 on:
   push:
