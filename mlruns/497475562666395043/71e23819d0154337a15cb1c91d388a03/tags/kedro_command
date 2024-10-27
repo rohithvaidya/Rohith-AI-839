@@ -1,1 +1,0 @@
-kedro run --node=split_data_node

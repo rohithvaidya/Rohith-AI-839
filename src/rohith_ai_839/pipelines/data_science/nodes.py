@@ -10,7 +10,7 @@ from evidently.metrics import *
 from evidently.report import Report
 from evidently.tests import *
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 import shap
 
@@ -45,8 +45,9 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression
     print(X_train)
     regressor = LogisticRegression(penalty="l2", C=0.01)
     regressor.fit(X_train, y_train)
+    sklearn_model = regressor
 
-    return regressor
+    return regressor, sklearn_model
 
 
 def quality_drift_check(
@@ -80,6 +81,8 @@ def quality_drift_check(
     )
     report.run(reference_data=X_train, current_data=X_test)
     report.save_html("data/08_reporting/data_drift.html")
+    data_drift_str = str(report.json)
+    
     return json.loads(report.json())
 
 
@@ -95,10 +98,16 @@ def evaluate_model(
     """
     y_pred = regressor.predict(X_test)
     score = accuracy_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
     logger = logging.getLogger(__name__)
     logger.info("Model has accuracy of %.3f on test data.", score)
+    logger.info("Model has precision of %.3f on test data.", precision)
+    logger.info("Model has recall of %.3f on test data.", recall)
 
-    return y_pred
+    metrics = {"score":score, "precision":precision, "recall":recall}
+
+    return y_pred, metrics
 
 
 def prediction_drift_check(y_test: pd.Series, y_pred: pd.Series):
@@ -131,8 +140,9 @@ def prediction_drift_check(y_test: pd.Series, y_pred: pd.Series):
             DataDriftPreset(),
         ]
     )
+
     report.run(
-        reference_data=y_test.to_frame(name="y"),
+        reference_data=y_test,
         current_data=pd.DataFrame(y_pred, columns=["y"]),
     )
 

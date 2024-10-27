@@ -42,6 +42,4 @@ jobs:
 
     - name: Run Kedro Pipeline
       run: |
-        kedro run --nodes=evaluate_model
-        kedro run --nodes=prediction_drift_check
-        kedro run --nodes=report_plotly
+        kedro run --from-nodes=evaluate_model_node

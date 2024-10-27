@@ -42,7 +42,15 @@
 
 metrics:
   type: tracking.MetricsDataset
-  filepath: data/09_tracking/metrics.json
+  filepath: data/07_model_output/metrics.json
+
+data_drift:
+  type: json.JSONDataset
+  filepath: data/07_model_output/data_drift.json
+
+pred_drift:
+  type: json.JSONDataset
+  filepath: data/07_model_output/pred_drift.json
 
 
 dummy_confusion_matrix:
@@ -76,5 +84,27 @@ regressor:
   type: kedro_mlflow.io.models.MlflowModelTrackingDataset
   flavor: mlflow.sklearn
 
+sklearn_model:
+    type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+    dataset:
+        type: kedro_mlflow.io.models.MlflowModelLocalFileSystemDataset
+        flavor: mlflow.sklearn
+        filepath: data/06_models/sklearn_model
 
-  
+X_test:
+  type: pandas.CSVDataset
+  filepath: "data/05_model_input/X_test.csv"
+  load_args:
+    sep: ","
+  save_args:
+    index: False
+  versioned: True
+
+y_test:
+  type: pandas.CSVDataset
+  filepath: "data/05_model_input/y_test.csv"
+  load_args:
+    sep: ","
+  save_args:
+    index: False
+  versioned: True
