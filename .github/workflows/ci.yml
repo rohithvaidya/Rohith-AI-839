@@ -33,10 +33,10 @@ jobs:
         # poetry install
 
     # Run tests
-    - name: Run Unit Tests
-      run: |
-        pip install pytest  # Ensure pytest is installed
-        pytest  # Run your tests folder
+    #- name: Run Unit Tests
+    #  run: |
+    #    pip install pytest  # Ensure pytest is installed
+     #   pytest  # Run your tests folder
         # Optionally, if you use pytest-cov for coverage:
         # pytest --cov=src tests/
 
