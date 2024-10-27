@@ -12,6 +12,7 @@ from evidently.tests import *
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+import shap
 
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
@@ -43,6 +44,7 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression
     """
     regressor = LogisticRegression(penalty="l2", C=0.01)
     regressor.fit(X_train, y_train)
+
     return regressor
 
 
@@ -241,7 +243,6 @@ def report_plotly(data_drift, pred_drift):
     PNG files are saved to 'data/08_reporting/' for each column's distribution plot based
     on the drift reports.
     """
-    print(type(data_drift))
     data_drift_by_columns = data_drift["metrics"][1]["result"]["drift_by_columns"]
     pred_drift_by_columns = pred_drift["metrics"][1]["result"]["drift_by_columns"]
     for column, data in data_drift_by_columns.items():

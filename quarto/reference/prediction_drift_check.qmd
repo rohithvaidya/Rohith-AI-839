@@ -5,8 +5,8 @@
 Checks for prediction drift between the true and predicted values.
 
 This function runs a data drift analysis between the provided true values (`y_test`)
-and predicted values (`y_pred`). It generates a drift report using the `Report` class 
-with the `DataDriftPreset` metrics, saves the report as an HTML file, and returns the 
+and predicted values (`y_pred`). It generates a drift report using the `Report` class
+with the `DataDriftPreset` metrics, saves the report as an HTML file, and returns the
 drift report in JSON format.
 
 ## Parameters

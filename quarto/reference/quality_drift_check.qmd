@@ -4,8 +4,8 @@
 
 Checks for data drift between training and test datasets using predefined metrics.
 
-This function runs a data drift analysis between the provided training (`X_train`) 
-and test (`X_test`) datasets. It generates a drift report using the `Report` class 
+This function runs a data drift analysis between the provided training (`X_train`)
+and test (`X_test`) datasets. It generates a drift report using the `Report` class
 with the `DataDriftPreset` metrics and returns the report in JSON format.
 
 ## Parameters

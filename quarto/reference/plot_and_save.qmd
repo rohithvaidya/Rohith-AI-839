@@ -4,8 +4,8 @@
 
 Plots and saves the probability density distribution for a specified column.
 
-This function compares the probability density distribution between the current and 
-reference datasets for a specified column. It creates a line plot for both datasets and saves 
+This function compares the probability density distribution between the current and
+reference datasets for a specified column. It creates a line plot for both datasets and saves
 the plot as a PNG file to a predefined location.
 
 ## Parameters
@@ -24,5 +24,5 @@ the plot as a PNG file to a predefined location.
 
 ## Side Effects
 
-A PNG file named after the column is saved to 'data/08_reporting/' containing the 
+A PNG file named after the column is saved to 'data/08_reporting/' containing the
 distribution plot for the specified column.

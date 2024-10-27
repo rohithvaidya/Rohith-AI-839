@@ -1,17 +1,28 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quarto",
+    "objectID": "reference/train_model.html",
+    "href": "reference/train_model.html",
+    "title": "train_model",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "train_model\ntrain_model(X_train, y_train)\nTrains the Logistic regression model.\nArgs: X_train: Training data of independent features. y_train: Training data for target decision.\nReturns: Trained model.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "train_model"
+    ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "reference/sklearn.html",
+    "href": "reference/sklearn.html",
+    "title": "sklearn",
     "section": "",
-    "text": "About this site"
+    "text": "sklearn\nsklearn\nConfigure global settings and get information about the working environment."
+  },
+  {
+    "objectID": "reference/Report.html",
+    "href": "reference/Report.html",
+    "title": "Report",
+    "section": "",
+    "text": "Report\nreport.Report(self, metrics, options=None, timestamp=None, id=None, metadata=None, tags=None, model_id=None, reference_id=None, batch_size=None, dataset_id=None, name=None)"
   },
   {
     "objectID": "reference/preview.html",
@@ -26,6 +37,126 @@
     "title": "preview",
     "section": "",
     "text": "&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n ...\n&gt;&gt;&gt; preview(obj)\n ..."
+  },
+  {
+    "objectID": "reference/plot_and_save.html",
+    "href": "reference/plot_and_save.html",
+    "title": "plot_and_save",
+    "section": "",
+    "text": "plot_and_save(column_name, current_data, reference_data)\nPlots and saves the probability density distribution for a specified column.\nThis function compares the probability density distribution between the current and reference datasets for a specified column. It creates a line plot for both datasets and saves the plot as a PNG file to a predefined location.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ncolumn_name\nstr\nThe name of the column for which the distribution plot is generated.\nrequired\n\n\ncurrent_data\npd.DataFrame\nThe current dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\nreference_data\npd.DataFrame\nThe reference dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\nThis function does not return any value, but saves the generated plot as a PNG file.\n\n\n\n\n\n\nA PNG file named after the column is saved to ‘data/08_reporting/’ containing the distribution plot for the specified column.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "plot_and_save"
+    ]
+  },
+  {
+    "objectID": "reference/plot_and_save.html#parameters",
+    "href": "reference/plot_and_save.html#parameters",
+    "title": "plot_and_save",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ncolumn_name\nstr\nThe name of the column for which the distribution plot is generated.\nrequired\n\n\ncurrent_data\npd.DataFrame\nThe current dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\nreference_data\npd.DataFrame\nThe reference dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "plot_and_save"
+    ]
+  },
+  {
+    "objectID": "reference/plot_and_save.html#returns",
+    "href": "reference/plot_and_save.html#returns",
+    "title": "plot_and_save",
+    "section": "",
+    "text": "Type\nDescription\n\n\n\n\nNone\nThis function does not return any value, but saves the generated plot as a PNG file.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "plot_and_save"
+    ]
+  },
+  {
+    "objectID": "reference/plot_and_save.html#side-effects",
+    "href": "reference/plot_and_save.html#side-effects",
+    "title": "plot_and_save",
+    "section": "",
+    "text": "A PNG file named after the column is saved to ‘data/08_reporting/’ containing the distribution plot for the specified column.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "plot_and_save"
+    ]
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Modeling Stage\n\n\n\nLogisticRegression\nLogistic Regression (aka logit, MaxEnt) classifier.\n\n\n\n\n\n\nDrfit Stage\n\n\n\nDataDriftPreset\nMetric Preset for Data Drift analysis.\n\n\n\n\n\n\nNodes\n\n\n\nsplit_data\nSplits data into features and targets training and test sets.\n\n\ntrain_model\nTrains the Logistic regression model.\n\n\nquality_drift_check\nChecks for data drift between training and test datasets using predefined metrics.\n\n\nevaluate_model\nCalculates and logs the coefficient of determination.\n\n\nprediction_drift_check\nChecks for prediction drift between the true and predicted values.\n\n\nplot_and_save\nPlots and saves the probability density distribution for a specified column.\n\n\nreport_plotly\nGenerates and saves distribution plots for data and prediction drift using Plotly.",
+    "crumbs": [
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#ml-stagewise-documentation",
+    "href": "reference/index.html#ml-stagewise-documentation",
+    "title": "Function reference",
+    "section": "",
+    "text": "Modeling Stage\n\n\n\nLogisticRegression\nLogistic Regression (aka logit, MaxEnt) classifier.",
+    "crumbs": [
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#ml-stagewise-documentation-1",
+    "href": "reference/index.html#ml-stagewise-documentation-1",
+    "title": "Function reference",
+    "section": "",
+    "text": "Drfit Stage\n\n\n\nDataDriftPreset\nMetric Preset for Data Drift analysis.",
+    "crumbs": [
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#ml-stagewise-documentation-2",
+    "href": "reference/index.html#ml-stagewise-documentation-2",
+    "title": "Function reference",
+    "section": "",
+    "text": "Nodes\n\n\n\nsplit_data\nSplits data into features and targets training and test sets.\n\n\ntrain_model\nTrains the Logistic regression model.\n\n\nquality_drift_check\nChecks for data drift between training and test datasets using predefined metrics.\n\n\nevaluate_model\nCalculates and logs the coefficient of determination.\n\n\nprediction_drift_check\nChecks for prediction drift between the true and predicted values.\n\n\nplot_and_save\nPlots and saves the probability density distribution for a specified column.\n\n\nreport_plotly\nGenerates and saves distribution plots for data and prediction drift using Plotly.",
+    "crumbs": [
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/evaluate_model.html",
+    "href": "reference/evaluate_model.html",
+    "title": "evaluate_model",
+    "section": "",
+    "text": "evaluate_model\nevaluate_model(regressor, X_test, y_test)\nCalculates and logs the coefficient of determination.\nArgs: regressor: Trained model. X_test: Testing data of independent features. y_test: Testing data for target decision.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "evaluate_model"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "reference/DataDriftPreset.html",
+    "href": "reference/DataDriftPreset.html",
+    "title": "DataDriftPreset",
+    "section": "",
+    "text": "DataDriftPreset\nmetric_preset.DataDriftPreset(self, columns=None, embeddings=None, embeddings_drift_method=None, drift_share=0.5, stattest=None, cat_stattest=None, num_stattest=None, text_stattest=None, per_column_stattest=None, stattest_threshold=None, cat_stattest_threshold=None, num_stattest_threshold=None, text_stattest_threshold=None, per_column_stattest_threshold=None)\nMetric Preset for Data Drift analysis.\nContains metrics: - DatasetDriftMetric - DataDriftTable - EmbeddingsDriftMetric",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "DataDriftPreset"
+    ]
   },
   {
     "objectID": "reference/get_object.html",
@@ -61,33 +192,6 @@
     "title": "get_object",
     "section": "",
     "text": "Type\nDescription\n\n\n\n\ndc.Object\nabc"
-  },
-  {
-    "objectID": "reference/index.html",
-    "href": "reference/index.html",
-    "title": "Function reference",
-    "section": "",
-    "text": "Modeling Stage\n\n\n\nLogisticRegression\nLogistic Regression (aka logit, MaxEnt) classifier.\n\n\n\n\n\n\nDrfit Stage\n\n\n\nDataDriftPreset\nMetric Preset for Data Drift analysis.\n\n\n\n\n\n\nNodes\n\n\n\nsplit_data\nSplits data into features and targets training and test sets.\n\n\ntrain_model\nTrains the Logistic regression model.\n\n\nquality_drift_check\nChecks for data drift between training and test datasets using predefined metrics.\n\n\nevaluate_model\nCalculates and logs the coefficient of determination.\n\n\nprediction_drift_check\nChecks for prediction drift between the true and predicted values.\n\n\nplot_and_save\nPlots and saves the probability density distribution for a specified column.\n\n\nreport_plotly\nGenerates and saves distribution plots for data and prediction drift using Plotly.",
-    "crumbs": [
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#some-functions",
-    "href": "reference/index.html#some-functions",
-    "title": "Function reference",
-    "section": "",
-    "text": "Functions to inspect docstrings.\n\n\n\nLogisticRegression\nLogistic Regression (aka logit, MaxEnt) classifier.",
-    "crumbs": [
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/sklearn.html",
-    "href": "reference/sklearn.html",
-    "title": "sklearn",
-    "section": "",
-    "text": "sklearn\nsklearn\nConfigure global settings and get information about the working environment."
   },
   {
     "objectID": "reference/LogisticRegression.html",
@@ -178,164 +282,6 @@
     ]
   },
   {
-    "objectID": "reference/Report.html",
-    "href": "reference/Report.html",
-    "title": "Report",
-    "section": "",
-    "text": "Report\nreport.Report(self, metrics, options=None, timestamp=None, id=None, metadata=None, tags=None, model_id=None, reference_id=None, batch_size=None, dataset_id=None, name=None)"
-  },
-  {
-    "objectID": "reference/DataDriftPreset.html",
-    "href": "reference/DataDriftPreset.html",
-    "title": "DataDriftPreset",
-    "section": "",
-    "text": "DataDriftPreset\nmetric_preset.DataDriftPreset(self, columns=None, embeddings=None, embeddings_drift_method=None, drift_share=0.5, stattest=None, cat_stattest=None, num_stattest=None, text_stattest=None, per_column_stattest=None, stattest_threshold=None, cat_stattest_threshold=None, num_stattest_threshold=None, text_stattest_threshold=None, per_column_stattest_threshold=None)\nMetric Preset for Data Drift analysis.\nContains metrics: - DatasetDriftMetric - DataDriftTable - EmbeddingsDriftMetric",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "DataDriftPreset"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#ml-stagewise-documentation",
-    "href": "reference/index.html#ml-stagewise-documentation",
-    "title": "Function reference",
-    "section": "",
-    "text": "Modeling Stage\n\n\n\nLogisticRegression\nLogistic Regression (aka logit, MaxEnt) classifier.",
-    "crumbs": [
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#ml-stagewise-documentation-1",
-    "href": "reference/index.html#ml-stagewise-documentation-1",
-    "title": "Function reference",
-    "section": "",
-    "text": "Drfit Stage\n\n\n\nDataDriftPreset\nMetric Preset for Data Drift analysis.",
-    "crumbs": [
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/split_data.html",
-    "href": "reference/split_data.html",
-    "title": "split_data",
-    "section": "",
-    "text": "split_data\nsplit_data(data, parameters)\nSplits data into features and targets training and test sets.\nArgs: data: Data containing features and target. parameters: Parameters defined in parameters/data_science.yml. Returns: Split data.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "split_data"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#ml-stagewise-documentation-2",
-    "href": "reference/index.html#ml-stagewise-documentation-2",
-    "title": "Function reference",
-    "section": "",
-    "text": "Nodes\n\n\n\nsplit_data\nSplits data into features and targets training and test sets.\n\n\ntrain_model\nTrains the Logistic regression model.\n\n\nquality_drift_check\nChecks for data drift between training and test datasets using predefined metrics.\n\n\nevaluate_model\nCalculates and logs the coefficient of determination.\n\n\nprediction_drift_check\nChecks for prediction drift between the true and predicted values.\n\n\nplot_and_save\nPlots and saves the probability density distribution for a specified column.\n\n\nreport_plotly\nGenerates and saves distribution plots for data and prediction drift using Plotly.",
-    "crumbs": [
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/train_model.html",
-    "href": "reference/train_model.html",
-    "title": "train_model",
-    "section": "",
-    "text": "train_model\ntrain_model(X_train, y_train)\nTrains the Logistic regression model.\nArgs: X_train: Training data of independent features. y_train: Training data for target decision.\nReturns: Trained model.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "train_model"
-    ]
-  },
-  {
-    "objectID": "reference/quality_drift_check.html",
-    "href": "reference/quality_drift_check.html",
-    "title": "quality_drift_check",
-    "section": "",
-    "text": "quality_drift_check(X_train, X_test)\nChecks for data drift between training and test datasets using predefined metrics.\nThis function runs a data drift analysis between the provided training (X_train) and test (X_test) datasets. It generates a drift report using the Report class with the DataDriftPreset metrics and returns the report in JSON format.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nX_train\npd.DataFrame\nThe reference dataset (usually the training dataset) to check for data drift.\nrequired\n\n\nX_test\npd.DataFrame\nThe current dataset (usually the test dataset) to compare against the reference dataset.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\nA dictionary containing the drift report results in JSON format.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "quality_drift_check"
-    ]
-  },
-  {
-    "objectID": "reference/quality_drift_check.html#parameters",
-    "href": "reference/quality_drift_check.html#parameters",
-    "title": "quality_drift_check",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nX_train\npd.DataFrame\nThe reference dataset (usually the training dataset) to check for data drift.\nrequired\n\n\nX_test\npd.DataFrame\nThe current dataset (usually the test dataset) to compare against the reference dataset.\nrequired",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "quality_drift_check"
-    ]
-  },
-  {
-    "objectID": "reference/quality_drift_check.html#returns",
-    "href": "reference/quality_drift_check.html#returns",
-    "title": "quality_drift_check",
-    "section": "",
-    "text": "Type\nDescription\n\n\n\n\ndict\nA dictionary containing the drift report results in JSON format.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "quality_drift_check"
-    ]
-  },
-  {
-    "objectID": "reference/plot_and_save.html",
-    "href": "reference/plot_and_save.html",
-    "title": "plot_and_save",
-    "section": "",
-    "text": "plot_and_save(column_name, current_data, reference_data)\nPlots and saves the probability density distribution for a specified column.\nThis function compares the probability density distribution between the current and reference datasets for a specified column. It creates a line plot for both datasets and saves the plot as a PNG file to a predefined location.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ncolumn_name\nstr\nThe name of the column for which the distribution plot is generated.\nrequired\n\n\ncurrent_data\npd.DataFrame\nThe current dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\nreference_data\npd.DataFrame\nThe reference dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\nThis function does not return any value, but saves the generated plot as a PNG file.\n\n\n\n\n\n\nA PNG file named after the column is saved to ‘data/08_reporting/’ containing the distribution plot for the specified column.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "plot_and_save"
-    ]
-  },
-  {
-    "objectID": "reference/plot_and_save.html#parameters",
-    "href": "reference/plot_and_save.html#parameters",
-    "title": "plot_and_save",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ncolumn_name\nstr\nThe name of the column for which the distribution plot is generated.\nrequired\n\n\ncurrent_data\npd.DataFrame\nThe current dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired\n\n\nreference_data\npd.DataFrame\nThe reference dataset containing columns ‘x’ (values) and ‘y’ (probability densities).\nrequired",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "plot_and_save"
-    ]
-  },
-  {
-    "objectID": "reference/plot_and_save.html#returns",
-    "href": "reference/plot_and_save.html#returns",
-    "title": "plot_and_save",
-    "section": "",
-    "text": "Type\nDescription\n\n\n\n\nNone\nThis function does not return any value, but saves the generated plot as a PNG file.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "plot_and_save"
-    ]
-  },
-  {
-    "objectID": "reference/plot_and_save.html#side-effects",
-    "href": "reference/plot_and_save.html#side-effects",
-    "title": "plot_and_save",
-    "section": "",
-    "text": "A PNG file named after the column is saved to ‘data/08_reporting/’ containing the distribution plot for the specified column.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "plot_and_save"
-    ]
-  },
-  {
-    "objectID": "reference/evaluate_model.html",
-    "href": "reference/evaluate_model.html",
-    "title": "evaluate_model",
-    "section": "",
-    "text": "evaluate_model\nevaluate_model(regressor, X_test, y_test)\nCalculates and logs the coefficient of determination.\nArgs: regressor: Trained model. X_test: Testing data of independent features. y_test: Testing data for target decision.",
-    "crumbs": [
-      "ML Stagewise Documentation",
-      "evaluate_model"
-    ]
-  },
-  {
     "objectID": "reference/prediction_drift_check.html",
     "href": "reference/prediction_drift_check.html",
     "title": "prediction_drift_check",
@@ -380,6 +326,39 @@
     ]
   },
   {
+    "objectID": "reference/quality_drift_check.html",
+    "href": "reference/quality_drift_check.html",
+    "title": "quality_drift_check",
+    "section": "",
+    "text": "quality_drift_check(X_train, X_test)\nChecks for data drift between training and test datasets using predefined metrics.\nThis function runs a data drift analysis between the provided training (X_train) and test (X_test) datasets. It generates a drift report using the Report class with the DataDriftPreset metrics and returns the report in JSON format.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nX_train\npd.DataFrame\nThe reference dataset (usually the training dataset) to check for data drift.\nrequired\n\n\nX_test\npd.DataFrame\nThe current dataset (usually the test dataset) to compare against the reference dataset.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\nA dictionary containing the drift report results in JSON format.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "quality_drift_check"
+    ]
+  },
+  {
+    "objectID": "reference/quality_drift_check.html#parameters",
+    "href": "reference/quality_drift_check.html#parameters",
+    "title": "quality_drift_check",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nX_train\npd.DataFrame\nThe reference dataset (usually the training dataset) to check for data drift.\nrequired\n\n\nX_test\npd.DataFrame\nThe current dataset (usually the test dataset) to compare against the reference dataset.\nrequired",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "quality_drift_check"
+    ]
+  },
+  {
+    "objectID": "reference/quality_drift_check.html#returns",
+    "href": "reference/quality_drift_check.html#returns",
+    "title": "quality_drift_check",
+    "section": "",
+    "text": "Type\nDescription\n\n\n\n\ndict\nA dictionary containing the drift report results in JSON format.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "quality_drift_check"
+    ]
+  },
+  {
     "objectID": "reference/report_plotly.html",
     "href": "reference/report_plotly.html",
     "title": "report_plotly",
@@ -421,6 +400,17 @@
     "crumbs": [
       "ML Stagewise Documentation",
       "report_plotly"
+    ]
+  },
+  {
+    "objectID": "reference/split_data.html",
+    "href": "reference/split_data.html",
+    "title": "split_data",
+    "section": "",
+    "text": "split_data\nsplit_data(data, parameters)\nSplits data into features and targets training and test sets.\nArgs: data: Data containing features and target. parameters: Parameters defined in parameters/data_science.yml. Returns: Split data.",
+    "crumbs": [
+      "ML Stagewise Documentation",
+      "split_data"
     ]
   }
 ]
