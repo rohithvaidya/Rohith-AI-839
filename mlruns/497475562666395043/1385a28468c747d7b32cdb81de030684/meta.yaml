@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Lab%20Files/Repos/rohith-ai-839/mlruns/497475562666395043/1385a28468c747d7b32cdb81de030684/artifacts
+end_time: 1730019018346
+entry_point_name: ''
+experiment_id: '497475562666395043'
+lifecycle_stage: active
+run_id: 1385a28468c747d7b32cdb81de030684
+run_name: __default__
+run_uuid: 1385a28468c747d7b32cdb81de030684
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730018999090
+status: 3
+tags: []
+user_id: rohit

@@ -4,8 +4,8 @@ from sklearn.preprocessing import LabelEncoder
 
 def preprocess_dataset(dataset: pd.DataFrame) -> pd.DataFrame:
     # If Null values detected initialise to 0
-    dataset.fillna(0)
-    
+    dataset = dataset.fillna(0)
+
     le = LabelEncoder()
     dataset["own_telephone"] = le.fit_transform(dataset["own_telephone"])
     dataset["foreign_worker"] = le.fit_transform(dataset["foreign_worker"])
