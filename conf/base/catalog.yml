@@ -43,14 +43,17 @@
 metrics:
   type: tracking.MetricsDataset
   filepath: data/07_model_output/metrics.json
+  versioned: True
 
 data_drift:
   type: json.JSONDataset
   filepath: data/07_model_output/data_drift.json
+  versioned: True
 
 pred_drift:
   type: json.JSONDataset
   filepath: data/07_model_output/pred_drift.json
+  versioned: True
 
 
 dummy_confusion_matrix:
