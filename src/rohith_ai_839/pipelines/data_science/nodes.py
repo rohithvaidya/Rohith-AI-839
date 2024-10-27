@@ -42,6 +42,7 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression
     Returns:
         Trained model.
     """
+    print(X_train)
     regressor = LogisticRegression(penalty="l2", C=0.01)
     regressor.fit(X_train, y_train)
 
@@ -78,6 +79,7 @@ def quality_drift_check(
         ]
     )
     report.run(reference_data=X_train, current_data=X_test)
+    report.save_html("data/08_reporting/data_drift.html")
     return json.loads(report.json())
 
 
